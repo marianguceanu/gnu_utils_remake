@@ -1,8 +1,8 @@
-#include <stddef.h>
+// TODO - check for the needed libs on windows as well
+#include <cstdlib>
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(int argc, char**argv)
+int main(int argc, char** argv)
 {
 	if (argc == 1)
 	{
@@ -16,10 +16,11 @@ int main(int argc, char**argv)
 	{
 		const char* path = argv[i];
 		errno_t fp = fopen_s(&stream[i - 1], path, "w");
+		/* Here I should include the code that checks if the file has been opened succesfully*/
+
 		fclose(stream[i - 1]);
 	}
 
 	free(stream);
-
 	return 0;
 }
